@@ -1,4 +1,4 @@
-[README.md](https://github.com/user-attachments/files/22440962/README.md)
+[README.md](https://github.com/user-attachments/files/22440966/README.md)
 # Leveraging Normal White Matter Hyperintensity Context for Enhanced Pathological Segmentation via Multi-Class Deep Learning
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -234,7 +234,6 @@ We provide anonymized sample FLAIR images with corresponding ground truth annota
 - **[Usage Tutorial](docs/USAGE.md)**: Step-by-step usage guide  
 - **[Methodology](docs/METHODOLOGY.md)**: Detailed three-class approach explanation
 - **[Clinical Guide](docs/CLINICAL_GUIDE.md)**: Clinical interpretation and validation
-- **[API Reference](docs/API_REFERENCE.md)**: Complete code documentation
 - **[Troubleshooting](docs/TROUBLESHOOTING.md)**: Common issues and solutions
 
 ## Contributing
