@@ -1,4 +1,4 @@
-[Uploading README.md…]()
+[README.md](https://github.com/user-attachments/files/22441078/README.md)
 # Leveraging Normal White Matter Hyperintensity Context for Enhanced Pathological Segmentation via Multi-Class Deep Learning
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -124,6 +124,12 @@ models/
 ```
 wmh-normal-abnormal-segmentation/
 ├── article_tables_figures/
+│   │   ├── Figure_1.png
+│   │   ├── Figure_2.png
+│   │   ├── Figure_3.png
+│   │   ├── Table_1.png
+│   │   ├── Table_2.png
+│   │   └── Table_3.png
 ├── src/
 │   ├── models/                    # Model architectures
 │   │   ├── unet.py
