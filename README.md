@@ -148,10 +148,10 @@ We provide pre-trained weights for all four architectures evaluated in our study
 
 | Model | Parameters | Scenario 1 (Binary) | Scenario 2 (Three-Class) |
 |-------|-----------|---------------------|---------------------------|
-| **U-Net** | 31.0M | ✓ Available | ✓ Available (Recommended) |
-| **Attention U-Net** | 34.9M | ✓ Available | ✓ Available |
+| **U-Net** | 31.1M | ✓ Available | ✓ Available (Recommended) |
+| **Attention U-Net** | 31.4M | ✓ Available | ✓ Available |
 | **DeepLabV3Plus** | 40.3M | ✓ Available | ✓ Available |
-| **TransUNet** | 105.3M | ✓ Available | ✓ Available |
+| **TransUNet** | 38.7M | ✓ Available | ✓ Available |
 
 ### Model Repository Structure
 
@@ -297,19 +297,11 @@ wmh-normal-abnormal-segmentation/
 │   │   └── metrics.py
 │   ├── preprocessing/             # Data preprocessing
 │   │   ├── preprocessing.py
-│   │   ├── data_loader.py
 │   │   └── normalization.py
 │   ├── training/                  # Training framework
-│   │   ├── train.py
-│   │   ├── config.py
-│   │   └── scenario_manager.py
-│   ├── inference/                 # Prediction tools
-│   │   ├── predict.py
-│   │   └── batch_predict.py
-│   └── evaluation/                # Evaluation framework
-│       ├── evaluator.py
-│       ├── statistical_analysis.py
-│       └── visualization.py
+│   │   └── train.py
+│   └── inference/                 # Prediction tools
+│       └── predict.py
 ├── models/                        # Pre-trained models (download via HF)
 │   ├── unet/models/
 │   ├── attention_unet/models/
@@ -365,7 +357,7 @@ Our comprehensive evaluation includes:
 - **Training Time**: 2-3 hours per model per scenario
 - **Inference Time**: 1.5 seconds per case (including preprocessing)
 - **Memory Usage**: Batch size 8 (GPU memory constrained)
-- **Parameter Count**: 31.0M (U-Net) to 105.3M (TransUNet)
+- **Parameter Count**: 31.0M (U-Net) to 38.7M (TransUNet)
 
 ### Sample Data
 We provide anonymized sample FLAIR images with corresponding ground truth annotations for:
@@ -427,7 +419,7 @@ If you use this work in your research, please cite:
 ```bibtex
 @article{bawil2025wmh,
   title={Incorporating Normal Periventricular Changes for Enhanced Pathological White Matter Hyperintensity Segmentation: On Multi-Class Deep Learning Approaches},
-  author={Bawil, Mahdi Bashiri and Shamsi, Mousa and Jafargholkhanloo, Ali Fahmi and Bavil, Abolhassan Shakeri},
+  author={Bawil, Mahdi Bashiri and Shamsi, Mousa and Jafargholkhanloo, Ali Fahmi and Bavil, Abolhassan Shakeri and Jafargholkhanloo, Ali Fahmi},
   journal={},
   year={2025},
   note={Code: https://github.com/Mahdi-Bashiri/wmh-normal-abnormal-segmentation, Models: https://huggingface.co/Bawil/wmh_leverage_normal_abnormal_segmentation}
