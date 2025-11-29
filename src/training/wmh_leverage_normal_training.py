@@ -49,16 +49,16 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # Models
-from unet_model import build_unet_3class
-from attn_unet_model import build_attention_unet_3class
-from trans_unet_model import build_trans_unet_3class
-from dlv3_unet_model import build_deeplabv3_unet_3class
+from unet import build_unet_3class
+from attention_unet import build_attention_unet_3class
+from transunet import build_trans_unet_3class
+from deeplabv3plus import build_deeplabv3_unet_3class
 
 # Loss Functions
-from loss_functions import *
+from losses import *
 
 # Metrics Functions
-from metrics_functions import *
+from metrics import *
 
 # Check for GPU assistance
 import tensorflow as tf
