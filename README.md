@@ -427,7 +427,7 @@ If you use this work in your research, please cite:
 ```bibtex
 @article{bawil2025wmh,
   title={Incorporating Normal Periventricular Changes for Enhanced Pathological White Matter Hyperintensity Segmentation: On Multi-Class Deep Learning Approaches},
-  author={Bawil, Mahdi Bashiri and Shamsi, Mousa and Jafargholkhanloo, Ali Fahmi and Bavil, Abolhassan Shakeri and Jafargholkhanloo, Ali Fahmi},
+  author={Bawil, Mahdi Bashiri and Shamsi, Mousa and Jafargholkhanloo, Ali Fahmi and Bavil, Abolhassan Shakeri},
   journal={},
   year={2025},
   note={Code: https://github.com/Mahdi-Bashiri/wmh-normal-abnormal-segmentation, Models: https://huggingface.co/Bawil/wmh_leverage_normal_abnormal_segmentation}
