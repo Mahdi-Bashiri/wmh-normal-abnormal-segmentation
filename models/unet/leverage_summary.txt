@@ -1,0 +1,76 @@
+
+    LEVERAGE PAPER RESULTS SUMMARY
+    ================================
+    Experiment Timestamp: 20251124_152044
+    WMH Segmentation: Binary vs Three-class Classification Comparison
+
+    DATASET INFORMATION:
+    --------------------
+    Training Images: 2050 
+    Test Images: 350
+    Image Size: (256, 256)
+    Classes: Background (0), Normal WMH (1), Abnormal WMH (2)
+
+    METHODOLOGY:
+    ------------
+    Architecture: Enhanced U-Net with Batch Normalization and Dropout
+    Loss Functions: 
+    - Scenario 1: weighted_bce
+    - Scenario 2: weighted_categorical
+    Training Epochs: 50
+    Batch Size: 8
+    Learning Rate: 0.0001
+
+    PERFORMANCE RESULTS:
+    --------------------
+                        | Scenario 1 (Binary) | Scenario 2 (3-class) | Improvement
+    --------------------|---------------------|----------------------|------------
+    Accuracy            | 0.9852            | 0.9965             | +0.0112
+    Precision           | 0.3340           | 0.7589            | +0.4248
+    Recall              | 0.9682              | 0.7765               | -0.1917
+    Dice Coefficient    | 0.4967                | 0.7676                 | +0.2709
+    IoU Coefficient     | 0.3304                 | 0.6228                  | +0.2924
+
+    STATISTICAL SIGNIFICANCE:
+    -------------------------
+    DICE COEFFICIENT:
+    Test: Paired t-test
+    t-statistic: 9.6244
+    p-value: 0.0000
+    Effect Size (Cohen's d): 0.5643
+    95% Confidence Interval: [0.1353, 0.2051]
+    Result: SIGNIFICANT improvement
+
+    IoU COEFFICIENT:
+    Test: Paired t-test
+    t-statistic: 10.1596
+    p-value: 0.0000
+    Effect Size (Cohen's d): 0.6481
+    95% Confidence Interval: [0.1356, 0.2010]
+    Result: SIGNIFICANT improvement
+
+    KEY FINDINGS:
+    -------------
+    1. Three-class segmentation shows 56.54% improvement in Dice coefficient
+    2. Three-class segmentation shows 81.33% improvement in IoU coefficient
+    3. Dice analysis confirms significant improvement
+    4. IoU analysis confirms significant improvement
+    5. Post-processing provided substantial improvements in both scenarios
+
+    FILES GENERATED:
+    ----------------
+    - Models: scenario1_binary_model.h5, scenario2_multiclass_model.h5
+    - Figures: training_curves.png/.pdf, comparison_visualization.png/.pdf, metrics_comparison.png/.pdf
+    - Tables: comprehensive_results.csv/.xlsx, latex_table.tex
+    - Statistics: statistical_analysis.json, statistical_report.txt
+    - Predictions: All test predictions and ground truth data saved
+
+    PUBLICATION READINESS:
+    ----------------------
+    ✓ High-resolution figures (300 DPI, PNG/PDF)
+    ✓ LaTeX-formatted tables
+    ✓ Comprehensive statistical analysis (Dice + IoU)
+    ✓ Post-processing impact analysis
+    ✓ Reproducible results with saved models
+    ✓ Professional documentation
+    
