@@ -1,0 +1,43 @@
+# Model files (hosted on Hugging Face)
+# Ignore all model files in subdirectories
+models/**/*.h5
+models/**/*.keras
+models/**/*.hdf5
+models/**/*.pb
+models/**/*.pth
+models/**/*.pt
+
+# Ignore all contents of models directory except structure
+models/*
+!models/.gitkeep
+!models/*/
+!models/*/.gitkeep
+
+# Alternative: Ignore entire models directory content
+# Uncomment if you prefer to not track any models structure
+# models/*
+# !models/.gitkeep
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
