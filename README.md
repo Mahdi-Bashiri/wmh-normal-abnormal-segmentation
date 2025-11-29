@@ -1,5 +1,5 @@
 [Uploading README.md…]()
-# Leveraging Normal White Matter Hyperintensity Context for Enhanced Pathological Segmentation via Multi-Class Deep Learning
+# Incorporating Normal Periventricular Changes for Enhanced Pathological White Matter Hyperintensity Segmentation: On Multi-Class Deep Learning Approaches
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
@@ -16,7 +16,7 @@ This repository implements a novel **three-class deep learning approach** for wh
 Traditional WMH segmentation methods use binary classification (background vs abnormal WMH), treating all hyperintensities equally. Our three-class approach introduces an intermediate category:
 
 - **Class 0**: Background
-- **Class 1**: Normal WMH (periventricular normal changes (aging-related))  
+- **Class 1**: Normal WMH (periventricular normal changes (aging-related or CSF-contaminated))  
 - **Class 2**: Abnormal WMH (pathologically significant lesions)
 
 This enables models to learn distinguishing features between normal aging-related changes and pathologically significant lesions, directly addressing the clinical challenge of false positive detection in periventricular regions.
@@ -24,38 +24,38 @@ This enables models to learn distinguishing features between normal aging-relate
 ### Performance Highlights
 
 **U-Net (Best Performing Architecture)**
-- **55.6% improvement** in Dice coefficient (0.693 vs 0.443)
-- **131% precision enhancement** (0.662 vs 0.287)
-- **Statistical significance**: p < 0.0001, Cohen's d = 0.971
+- **+27.1% increase** in Dice coefficient (0.768 vs 0.497)
+- **2.4 Hausdorff Distance enhancement** (27.4 vs 29.8)
+- **Statistical significance**: p < 0.0001, Cohen's d = 0.5643
 
 **Key Findings Across All Models**
 - All four architectures showed measurable improvements with three-class training
 - Traditional CNN-based models benefited more than transformer-based approaches
-- Maintained clinical feasibility with 1.5-second processing time
+- Maintained clinical feasibility with 1.5-second processing time (for 40-slice workflows)
 
 ## Architecture Comparison
 
-We evaluated four state-of-the-art deep learning architectures:
+We evaluated four modern baseline deep learning architectures:
 
 | Architecture | Scenario 1 (Binary) | Scenario 2 (Three-Class) | Improvement | Statistical Significance |
 |--------------|---------------------|---------------------------|-------------|-------------------------|
-| **U-Net** | Dice: 0.443 | Dice: 0.693 | **+55.6%** | p < 0.0001 |
-| **Attention U-Net** | Dice: 0.410 | Dice: 0.665 | **+62.3%** | p < 0.0001 |
-| **DeepLabV3Plus** | Dice: 0.379 | Dice: 0.553 | **+46.0%** | p < 0.0001 |
-| **Trans-U-Net** | Dice: 0.619 | Dice: 0.686 | **+10.8%** | p = 0.250 |
+| **U-Net** | Dice: 0.497 | Dice: 0.768 | **+0.271** | p < 0.0001 |
+| **Attention U-Net** | Dice: 0.486 | Dice: 0.740 | **+0.253** | p < 0.0001 |
+| **DeepLabV3Plus** | Dice: 0.374 | Dice: 0.586 | **+0.212** | p < 0.0001 |
+| **Trans-U-Net** | Dice: 0.510 | Dice: 0.700 | **+0.190** | p < 0.0001 |
 
 ## Dataset and Methodology
 
 ### Clinical Dataset
-- **100 MS patients** (1,974 FLAIR MRI images)
+- **Local Dataset: 100 MS patients** (2,000 FLAIR MRI images)
 - **Demographics**: 26 males, 74 females (age range 18-68 years)
 - **Scanner**: 1.5-Tesla TOSHIBA Vantage
-- **Expert Annotations**: Board-certified neuroradiologist (20+ years experience)
-- **Inter-observer Agreement**: κ = 0.8 (substantial agreement)
+- **Public Dataset: MSSEG2016: 15 patients** (750 FLAIR MRI images)
+- **Expert Annotations**: Board-certified neuroradiologists (20+ years experience)
 
 ### Training Configuration
-- **Data Split**: 80/10/10 patients (train/validation/test)
-- **Preprocessing**: Intensity normalization, brain extraction, 256×256 resizing
+- **Data Split**: 80/10/10 local patients, 9/3/3 public patients (train/validation/test)
+- **Preprocessing**: Noise reduction, Intensity normalization, 256×256 resizing
 - **Training**: 50 epochs, Adam optimizer, early stopping
 - **Loss Functions**: 
   - Scenario 1: Weighted binary cross-entropy
@@ -124,9 +124,10 @@ models/
 ```
 wmh-normal-abnormal-segmentation/
 ├── article_tables_figures/
-│   ├── Figure_1.png
-│   ├── Figure_2.png
-│   ├── Figure_3.png
+│   ├── Figure_1.tif
+│   ├── Figure_2.tif
+│   ├── Figure_3.tif
+│   ├── Figure_4.tif
 │   ├── Table_1.png
 │   ├── Table_2.png
 │   └── Table_3.png
@@ -170,9 +171,9 @@ wmh-normal-abnormal-segmentation/
 - **Disease Burden Quantification**: More accurate longitudinal monitoring
 
 ### Clinical Validation Results
-- **Precision Improvement**: Up to 131% enhancement in pathological lesion detection
+- **Precision Improvement**: Up to 0.271 enhancement in pathological lesion detection (Dice)
 - **Specificity Enhancement**: Better discrimination between normal and abnormal hyperintensities
-- **Processing Efficiency**: 3.5x increase in inference time but remains clinically feasible (1.5 seconds total)
+- **Processing Efficiency**: 3.5x increase in inference time but remains clinically feasible (1.5 seconds total for 40-slices workflow)
 
 ## Statistical Analysis
 
@@ -184,10 +185,10 @@ Our comprehensive evaluation includes:
 - **Wilcoxon signed-rank test** for non-parametric validation
 
 ### Key Statistical Findings
-- **U-Net**: Cohen's d = 0.971 (large effect size)
-- **Attention U-Net**: Cohen's d = 0.814 (large effect size)
-- **DeepLabV3Plus**: Cohen's d = 0.503 (medium effect size)
-- **Trans-U-Net**: Cohen's d = 0.123 (small effect size, not significant)
+- **U-Net**: Cohen's d = 0.5643 (large effect size)
+- **Attention U-Net**: Cohen's d = 0.4419 (medium effect size)
+- **DeepLabV3Plus**: Cohen's d = 0.5653 (large effect size)
+- **Trans-U-Net**: Cohen's d = 0.4778 (medium effect size)
 
 ## Technical Specifications
 
@@ -262,9 +263,9 @@ If you use this work in your research, please cite:
 
 ```bibtex
 @article{bawil2025wmh,
-  title={Leveraging Normal White Matter Hyperintensity Context for Enhanced Pathological Segmentation via Multi-Class Deep Learning},
-  author={Bawil, Mahdi Bashiri and Shamsi, Mousa and Bavil, Abolhassan Shakeri and Jafargholkhanloo, Ali Fahmi},
-  journal={Iranian International Conference on Biomedical Engineering},
+  title={Incorporating Normal Periventricular Changes for Enhanced Pathological White Matter Hyperintensity Segmentation: On Multi-Class Deep Learning Approaches},
+  author={Bawil, Mahdi Bashiri and Shamsi, Mousa and Jafargholkhanloo, Ali Fahmi and Bavil, Abolhassan Shakeri and Jafargholkhanloo, Ali Fahmi},
+  journal={},
   year={2025},
   note={Code available at: https://github.com/Mahdi-Bashiri/wmh-normal-abnormal-segmentation}
 }
