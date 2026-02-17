@@ -284,6 +284,7 @@ wmh-normal-abnormal-segmentation/
 │   ├── Figure_2.tif
 │   ├── Figure_3.tif
 │   ├── Figure_4.tif
+│   ├── Figure_5.tif
 │   ├── Table_1.png
 │   ├── Table_2.png
 │   └── Table_3.png
